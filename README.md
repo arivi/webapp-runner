@@ -6,7 +6,7 @@ Webapp runner is designed to allow you to launch an exploded or compressed war t
 
 ### Clone and Build
 
-    git clone git@github.com:jsimone/webapp-runner.git
+    git clone git@github.com:Vincit/webapp-runner.git
     mvn package
 
 ### Execute
@@ -22,42 +22,6 @@ or
     java -jar target/webapp-runner.jar --help
 
 Prints out all arguments accepted
-
-## Using with Maven in your project
-
-You can use the Maven dependency plugin to download webapp-runner as part of your build. This will eliminate the need for any external dependencies other than those specified in your build to run your application.
-
-### pom.xml
-
-Add the following to your pom.xml:
-
-    <build>
-    ...
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <version>2.3</version>
-              <executions>
-                  <execution>
-                      <phase>package</phase>
-                      <goals><goal>copy</goal></goals>
-                      <configuration>
-                          <artifactItems>
-                              <artifactItem>
-                                  <groupId>com.github.jsimone</groupId>
-                                  <artifactId>webapp-runner</artifactId>
-                                  <version>7.0.34.1</version>
-                                  <destFileName>webapp-runner.jar</destFileName>
-                              </artifactItem>
-                          </artifactItems>
-                      </configuration>
-                  </execution>
-              </executions>
-          </plugin>
-      </plugins>
-    ...
-    </build>
 
 ### launching
 
@@ -90,19 +54,6 @@ Then make sure that Redis environment variable is available for configuration: R
 Since your application will just be a standard webapp you can still use WTP and the traditional Tomcat integration points to run your application within Eclipse. However the containerless nature of webapp runner allows you to run from within Eclipse in a simpler way.
 
 Start by importing your project into Eclipse. It is best to import it as an existing Maven project using the [m2eclipse plugin](http://eclipse.org/m2e/).
-
-### Make your application dependant on webapp runner
-
-Add the following dependency to your pom.xml:
-
-    <dependency>
-      <groupId>com.github.jsimone</groupId>
-      <artifactId>webapp-runner</artifactId>
-      <version>7.0.34.1</version>
-      <scope>provided</scope>
-    </dependency>
-
-This will cause Eclipse to include webapp-runner on the classpath of your project so that it can be used for launching. It won't affect the final artifact built for your application.
 
 ### Create a launch configuration
 
