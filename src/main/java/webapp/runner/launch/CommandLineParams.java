@@ -53,6 +53,9 @@ public class CommandLineParams {
     @Parameter(names = "--compressable-mime-types", description = "Comma delimited list of mime types that will be compressed when using GZIP compression.")
     public String compressableMimeTypes = "text/html,text/xml,text/plain,text/css,application/json,application/xml,text/javascript,application/javascript";
 
+    @Parameter(names = "--force-https", description = "(EXPERIMENTAL) Forces all incoming requests to have https scheme and secure mode enabled. For use when behind a SSL terminating proxy and all else fails.")
+    public boolean forceHTTPS;
+
     @Parameter(names = "--enable-ssl", description = "Specify -Djavax.net.ssl.trustStore and -Djavax.net.ssl.trustStorePassword in JAVA_OPTS. Note: should not be used if a reverse proxy is terminating SSL for you (such as on Heroku)")
     public boolean enableSSL;
 

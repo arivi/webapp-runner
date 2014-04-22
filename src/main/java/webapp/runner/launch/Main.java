@@ -88,6 +88,11 @@ public class Main {
         Connector nioConnector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         nioConnector.setPort(commandLineParams.port);
 
+        if (commandLineParams.forceHTTPS) {
+            nioConnector.setScheme("https");
+            nioConnector.setSecure(true);
+        }
+
 		if (commandLineParams.enableSSL) {
 			nioConnector.setSecure(true);
 			nioConnector.setProperty("SSLEnabled", "true");
