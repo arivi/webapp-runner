@@ -91,6 +91,7 @@ public class Main {
         if (commandLineParams.forceHTTPS) {
             nioConnector.setScheme("https");
             nioConnector.setSecure(true);
+            nioConnector.setProxyPort(443);
         }
 
 		if (commandLineParams.enableSSL) {
