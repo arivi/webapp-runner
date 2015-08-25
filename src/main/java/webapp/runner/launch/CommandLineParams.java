@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CommandLineParams {
 
-    @Parameter
+    @Parameter(description = "Path to the directory / war file. If multiple paths are given an equal amount of context paths must also be given. Any context xml arguments are bound to contexts in order (from left to right)")
     public List<String> paths = new ArrayList<String>();
 
     @Parameter(names = "--session-timeout", description = "The number of minutes of inactivity before a user's session is timed out.")
@@ -24,10 +24,10 @@ public class CommandLineParams {
     public Integer port = 8080;    
 
     @Parameter(names = "--context-xml", description = "The path to the context xml to use.")
-    public String contextXml;
+    public List<String> contextXml;
 
     @Parameter(names = "--path", description = "The context path")
-    public String contextPath = "";
+    public List<String> contextPath;
     
     @Parameter(names = "--shutdown-override", description = "Overrides the default behavior and casues Tomcat to ignore lifecycle failure events rather than shutting down when they occur.")
     public boolean shutdownOverride = false;
